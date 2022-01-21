@@ -1,0 +1,86 @@
+﻿<UserControl x:Class="Case_Management_System_WPF.Views.CreateErrandView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Case_Management_System_WPF.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Label Foreground="#8C4872" Grid.Row="0" Content="Skapa ärende kopplat till kund" FontSize="18" />
+        <Canvas>
+            <Rectangle RadiusX="5" RadiusY="5" Canvas.Left="0" Canvas.Top="30" Height="140" Width="260" Stroke="Black" StrokeThickness="0.5"  Fill="#ECEEFF"   />
+        </Canvas>
+        <TextBlock Margin="10 0 0 0" Grid.Row="1" x:Name="tblockFirstName" Text="Välj kund att skapa ärende till"  FontSize="14" FontWeight="SemiBold" />
+        <ScrollViewer  Grid.Row="2" VerticalScrollBarVisibility="Auto" Height="100" Width="250" HorizontalAlignment="Left">
+            <ListView x:Name="Customers" DataContext="Case_Management_System_WPF.Models.Customer" Margin="10">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" x:Name="tblockFirstName"  MouseUp="TextBlock_MouseUp" Text="{Binding FirstName}"  FontSize="12" FontWeight="SemiBold" />
+                            <TextBlock Grid.Column="1" Margin="5 0 0 0"  x:Name="tblockLastName"  MouseUp="TextBlock_MouseUp" Text="{Binding LastName}"  FontSize="12" FontWeight="SemiBold" Width="150"  Cursor="Hand" />
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollViewer>
+        
+        <!--Skapa ärende-->
+        <TextBlock Visibility="Hidden" x:Name="CustomerId" FontSize="12" FontWeight="SemiBold" ></TextBlock>
+        <StackPanel Grid.Row="4" Margin="10">
+            <Canvas>
+                <Rectangle RadiusX="5" RadiusY="5" Canvas.Left="-10" Canvas.Top="-10" Height="240" Width="620" Stroke="Black" StrokeThickness="0.5"  Fill="#ECEEFF"   />
+            </Canvas>
+            <TextBlock x:Name="Kund" FontSize="12" FontWeight="SemiBold" ></TextBlock>
+            <TextBlock Margin="0 20 0 0" >*Fyll i samtliga fält:</TextBlock>            
+        </StackPanel>
+        <StackPanel Grid.Row="5" Grid.Column="0" Margin="10">            
+            <TextBlock Text="Titel på ärendet*" Margin="0 0 0 5"/>
+            <TextBox x:Name="tbTitle"/>
+        </StackPanel>               
+        <StackPanel Grid.Row="6" Grid.Column="0" Margin="10">
+            <TextBlock Text="Beskrivning av ärendet*" Margin="0 0 0 5"/>
+            <TextBox x:Name="tbErrandDescription"/>
+        </StackPanel>
+        <StackPanel Grid.Row="5" Grid.Column="1" Margin="10">
+            <TextBlock Text="Handläggare*" Margin="0 0 0 5"/>
+            <TextBox x:Name="tbAdminstrator"/>
+        </StackPanel>        
+        <StackPanel Grid.Row="7" Grid.Column="0"  Margin="10 10 0 0" >
+            <Button x:Name="btnCreate" Click="btnCreate_Click" Width="180" Content="Skapa ärende" FontSize="15"  FontWeight="SemiBold" Foreground="#8C4872" Background="#FFEFCA" Height="30" Cursor="Hand" />
+        </StackPanel>
+
+        <TextBlock Grid.Column="1" Grid.Row="6" Text="Status på ärendet*" Margin="10 10 0 0"/>
+        <CheckBox FontSize="15" x:Name="cbNotStarted" Grid.Column="1" Grid.Row="6" Margin="10,30,0,0" 
+            Content="Ärende ej påbörjat" 
+            Checked="NotStartedCheck" Unchecked="Unchecked"
+             />
+        <CheckBox FontSize="15" x:Name="cbStarted" Grid.Column="1" Grid.Row="7" Margin="10,0,0,0" 
+            Content="Ärende under behandling" 
+            Checked="StartedCheck" Unchecked="Unchecked"
+             />
+        <CheckBox FontSize="15" x:Name="cbFinished" Grid.Column="1" Grid.Row="7" Margin="10,30,0,0" 
+            Content="Ärende avslutat" 
+            Checked="FinishedCheck" Unchecked="Unchecked"
+             />
+        <TextBlock Visibility="Hidden" x:Name="Status" Grid.Column="1" Grid.Row="8" Margin="10,0,0,0" />
+    </Grid>
+</UserControl>

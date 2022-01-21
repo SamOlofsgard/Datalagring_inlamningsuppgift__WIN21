@@ -1,0 +1,38 @@
+﻿<Application x:Class="Case_Management_System_WPF.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Case_Management_System_WPF"
+             xmlns:viewModel="clr-namespace:Case_Management_System_WPF.Models.ViewModels"
+             xmlns:view="clr-namespace:Case_Management_System_WPF.Views"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Templates/MenuItem.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            
+            <DataTemplate DataType="{x:Type viewModel:CustomersViewModel}">
+                <view:CustomersView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:DefaultWindowViewModel}">
+                <view:DefaultWindowView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:ErrandsViewModel}">
+                <view:ErrandsView/>
+            </DataTemplate>            
+            
+            <DataTemplate DataType="{x:Type viewModel:CreateCustomerViewModel}">
+                <view:CreateCustomerView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:CreateErrandViewModel}">
+                <view:CreateErrandView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:UpdateErrandViewModel}">
+                <view:UpdateErrandView />
+            </DataTemplate>
+        </ResourceDictionary>
+
+    </Application.Resources>
+</Application>
