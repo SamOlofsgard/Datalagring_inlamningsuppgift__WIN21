@@ -133,7 +133,7 @@ namespace Case_Management_System_WPF.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Case_Management_System_WPF;component/views/createcustomerview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Case_Management_System_WPF;V1.0.0.0;component/views/createcustomerview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\CreateCustomerView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

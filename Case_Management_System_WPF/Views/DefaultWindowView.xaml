@@ -30,12 +30,12 @@
             <Rectangle RadiusX="5" RadiusY="5" Canvas.Left="10" Canvas.Top="27" Height="70" Width="220" Stroke="Black" StrokeThickness="0.5"  Fill="#ECEEFF"   />
             <TextBlock  x:Name="StatusÄrenden" Margin="17 30 0 0" FontWeight="SemiBold" ></TextBlock>
         </Canvas>
+        <!--Hämta 10 senaste ärenden från databasen-->
         <Canvas>
             <Rectangle RadiusX="5" RadiusY="5" Canvas.Left="30" Canvas.Top="35" Height="400" Width="210" Stroke="Black" StrokeThickness="0.5"  Fill="#ECEEFF"   />
         </Canvas>
         <TextBlock Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Margin="40 40 0 0" FontSize="14" FontWeight="SemiBold" >Välj ärende för att hämta <LineBreak/> kontaktinformation och <LineBreak/> ärendeinformation</TextBlock>
-        <TextBlock Grid.Row="2" Grid.Column="0" Margin="40 20 0 0" Text="10 Senaste ärenden inlagda:"></TextBlock>
-        <!--Hämta 10 senaste ärenden från databasen-->
+        <TextBlock Grid.Row="2" Grid.Column="0" Margin="40 20 0 0" Text="10 Senaste ärenden inlagda:"></TextBlock>        
         <StackPanel Grid.Row="2" Grid.RowSpan="7" Grid.Column="0" Margin="30">
             <ScrollViewer  VerticalScrollBarVisibility="Auto" Height="225" Width="200" HorizontalAlignment="Left">
                 <ListView x:Name="Errands" DataContext="Case_Management_System_WPF.Models.Errand" Margin="10">
@@ -47,8 +47,8 @@
                 </ListView>
             </ScrollViewer>
         </StackPanel>
-        <!--hämta kontaktinformation och ärendeinformation för valt ärende i listan-->
         
+        <!--hämta kontaktinformation och ärendeinformation för valt ärende i listan-->      
 
         <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1" Margin="5">
             <Canvas>

@@ -109,8 +109,7 @@ namespace Case_Management_System_WPF.Services
         }
         #endregion
 
-        #region Delete
-                
+        #region Delete                
         public void DeleteErrand(int id)
         {
             var item = _context.Errands.Find(id);
@@ -121,8 +120,6 @@ namespace Case_Management_System_WPF.Services
                 _context.SaveChanges();
             }
         }
-
-
         #endregion
 
     }
